@@ -23,18 +23,26 @@ if (navClose) {
 
 /*=============== REMOVE MENU MOBILE ===============*/
 
-const navLink = document.querySelectorAll('.nav__link')
+const navLink = document.querySelectorAll(".nav__link");
 
-const linkAction = () =>{
-    const navMenu = document.getElementById('nav-menu')
-    //when we click oc  each nav__link, we remove the show-menu
-    navMenu.classList.remove('show-menu')
-}
+const linkAction = () => {
+  const navMenu = document.getElementById("nav-menu");
+  //when we click oc  each nav__link, we remove the show-menu
+  navMenu.classList.remove("show-menu");
+};
 
-
-navLink.forEach(n => n.addEventListener('click', linkAction))
+navLink.forEach((n) => n.addEventListener("click", linkAction));
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 
+const scrollHeader = () => {
+  const header = document.getElementById("header");
+  //When scroll is greater than 50 viewpoint height, add the scroll-header class
+
+  this.scrollY >= 50
+    ? header.classList.add("bg-header")
+    : header.classList.remove("bg-header");
+};
+window.addEventListener("scroll", scrollHeader);
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
 /*=============== SHOW SCROLL UP ===============*/
