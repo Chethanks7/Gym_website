@@ -597,7 +597,73 @@ img {
   border: 2px solid var(--title-color);
 }
 /*=============== CALCULATE ===============*/
+.calculate {
+  padding-bottom: 0;
+}
 
+.calculate__container {
+  row-gap: 4rem;
+}
+
+.calculate__content .section__titles {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.calculate__desc {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.calculate__form {
+  display: grid;
+  row-gap: 1rem;
+}
+
+.calculate__box {
+  position: relative;
+  border: 2px solid var(--first-color);
+}
+
+.calculate__input {
+  width: 100%;
+  background-color: transparent;
+  padding: 20px 56px 20px 24px;
+  outline: none;
+  border: none;
+  color: var(--text-color);
+}
+
+.calculate__input::-webkit-outer-spin-button,
+.calculate__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.calculate__input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.calcualte__label {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.25rem;
+  color: var(--title-color);
+}
+
+.calculate__form .button {
+  margin-top: 2rem;
+}
+
+.calculate__img {
+  width: 180px;
+  justify-self: center;
+}
+
+.calculate__msg {
+  position: absolute;
+  transform: translateY(1rem);
+}
 /*=============== FOOTER ===============*/
 
 /*=============== SCROLL BAR ===============*/

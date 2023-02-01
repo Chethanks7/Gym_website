@@ -52,4 +52,24 @@ window.addEventListener("scroll", scrollHeader);
 
 /*=============== CALCULATE JS ===============*/
 
+const calculateForm = document.getElementById("calculate-form"),
+  calculateCm = document.getElementById("calculate-cm"),
+  calculateKg = document.getElementById("calculate-kg"),
+  calculateMsg = document.getElementById("cm");
+
+const calculateBmi = (e) => {
+  e.preventDefualt();
+
+  //check if the values are given or not
+  if (calculateCm.value === "" || calculateKg.value === "") {
+    //Add and Remove color
+    calculateMsg.classList.remove("color-green");
+    calculateMsg.classList.add("color-red");
+
+    //Show message
+    calculateMsg.textContent = "Fill in the Height and Weight";
+  }
+};
+
+calculateForm.addEventListener("submit", calculateBmi);
 /*=============== EMAIL JS ===============*/
