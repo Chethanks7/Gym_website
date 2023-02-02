@@ -75,19 +75,30 @@ calculateForm.addEventListener("submit", function (e) {
     //BMI formula
     const m = calculateCm.value * 0.3048,
       kg = calculateKg.value,
-      bmi = Math.round(kg / (m * m));
+      bmi = (kg / (m * m)).toFixed(2);
 
     //show Health Status
     if (bmi < 18.5) {
-      calculateMsg.textContent = "Your BMI is and you are skinny😥";
+      calculateMsg.textContent = "Your BMI is " + bmi + " and you are skinny😥";
       calculateMsg.classList.add("color-red");
     } else if (bmi >= 18.5 && bmi <= 24.9) {
-      calculateMsg.textContent = "Your BMI is and you are healthy 😉";
+      calculateMsg.textContent =
+        "Your BMI is " + bmi + " and you are healthy 🥳";
       calculateMsg.classList.add("color-green");
     } else {
-      calculateMsg.textContent = "Your BMI is and you are overweight😥";
+      calculateMsg.textContent =
+        "Your BMI is " + bmi + " and you are overweight😥";
       calculateMsg.classList.add("color-red");
     }
+
+    //To clear the input message
+    calculateCm.value = "";
+    calculateKg.value = "";
+
+    //remove message
+    setTimeout(() => {
+      calculateMsg.textContent = "";
+    }, 3000);
   }
 });
 /*=============== EMAIL JS ===============*/
