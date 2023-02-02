@@ -55,21 +55,39 @@ window.addEventListener("scroll", scrollHeader);
 const calculateForm = document.getElementById("calculate-form"),
   calculateCm = document.getElementById("calculate-cm"),
   calculateKg = document.getElementById("calculate-kg"),
-  calculateMsg = document.getElementById("cm");
+  calculateMsg = document.getElementById("calculate-msg");
 
-const calculateBmi = (e) => {
-  e.preventDefualt();
-
-  //check if the values are given or not
+calculateForm.addEventListener("submit", function (e) {
+  e.preventDefault();
   if (calculateCm.value === "" || calculateKg.value === "") {
-    //Add and Remove color
+    //ADD and remove color
     calculateMsg.classList.remove("color-green");
     calculateMsg.classList.add("color-red");
 
-    //Show message
-    calculateMsg.textContent = "Fill in the Height and Weight";
-  }
-};
+    //show message
+    calculateMsg.textContent = "Fill the Height and Weight 😑";
 
-calculateForm.addEventListener("submit", calculateBmi);
+    //remove message
+    setTimeout(() => {
+      calculateMsg.textContent = "";
+    }, 3000);
+  } else {
+    //BMI formula
+    const m = calculateCm.value * 0.3048,
+      kg = calculateKg.value,
+      bmi = Math.round(kg / (m * m));
+
+    //show Health Status
+    if (bmi < 18.5) {
+      calculateMsg.textContent = "Your BMI is and you are skinny😥";
+      calculateMsg.classList.add("color-red");
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      calculateMsg.textContent = "Your BMI is and you are healthy 😉";
+      calculateMsg.classList.add("color-green");
+    } else {
+      calculateMsg.textContent = "Your BMI is and you are overweight😥";
+      calculateMsg.classList.add("color-red");
+    }
+  }
+});
 /*=============== EMAIL JS ===============*/
