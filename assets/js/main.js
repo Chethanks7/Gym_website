@@ -38,9 +38,11 @@ const scrollHeader = () => {
   const header = document.getElementById("header");
 
   //makes the header stay after 50% scroll in height
-  this.scrollY >= 50
-    ? header.classList.add("bg-header")
-    : header.classList.remove("bg-header");
+  if(this.scrollY >= 50 ){
+    header.classList.add('bg-header');
+  }else{
+    header.classList.remove('bg-header');
+  }
 };
 
 window.addEventListener("scroll", scrollHeader);
@@ -70,7 +72,7 @@ calculateForm.addEventListener("submit", function (e) {
     //remove message
     setTimeout(() => {
       calculateMsg.textContent = "";
-    }, 3000);
+    }, 5000);
   } else {
     //BMI formula
     const m = calculateCm.value * 0.3048,
@@ -98,7 +100,7 @@ calculateForm.addEventListener("submit", function (e) {
     //remove message
     setTimeout(() => {
       calculateMsg.textContent = "";
-    }, 3000);
+    }, 5000);
   }
 });
 /*=============== EMAIL JS ===============*/
