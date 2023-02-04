@@ -38,10 +38,10 @@ const scrollHeader = () => {
   const header = document.getElementById("header");
 
   //makes the header stay after 50% scroll in height
-  if(this.scrollY >= 50 ){
-    header.classList.add('bg-header');
-  }else{
-    header.classList.remove('bg-header');
+  if (this.scrollY >= 50) {
+    header.classList.add("bg-header");
+  } else {
+    header.classList.remove("bg-header");
   }
 };
 
@@ -104,3 +104,51 @@ calculateForm.addEventListener("submit", function (e) {
   }
 });
 /*=============== EMAIL JS ===============*/
+
+const contactForm = document.getElementById("contact-form"),
+  contactMsg = document.getElementById("contact-msg"),
+  contactUser = document.getElementById("contact-user");
+
+const sendMEmail = (e) => {
+  e.preventDefault();
+
+  //check if the feilds are field were not
+
+  if (contactUser.value === "") {
+    contactMsg.classList.add("color-red");
+
+    contactMsg.textContent = "Enter your email";
+
+    setTimeout(() => {
+      contactMsg.textContent = "";
+    }, 3000);
+  } else {
+    //parameters are => serviceID, templateID, templateParams, publicKey
+    emailjs
+      .sendForm(
+        "service_lcsgbns",
+        "template_78e5l8a",
+        "#contact-form",
+        "p958wpEQzRz-fDTpz"
+      )
+      .then(() =>{
+        //show color
+        contactMsg.classList.add('color-green')
+        contactMsg.textContent = "You Successfully registered"
+
+        //remove message
+
+        setTimeout(() => {
+          contactMsg.textContent =""
+        }, 4000);
+
+        contactUser.value = " ";
+      }, (error) =>{
+        alert("Something went wrong......",error)
+      })
+
+      
+  }
+};
+
+contactForm.addEventListener("submit", sendMEmail);
